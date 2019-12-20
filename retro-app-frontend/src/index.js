@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './Components/App'
 import Provider from './Components/Provider'
 import { Router } from 'react-router'
+import createHistory from 'history/createBrowserHistory'
+import index from './index.css'
+
+let history = createHistory()
 
 ReactDOM.render(
     <Provider>

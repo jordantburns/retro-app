@@ -6,5 +6,13 @@
     {
         "number": 2,
         "route": "/rooms"
+    },
+    {
+        "number": 3,
+        "route": "/join"
+    },
+    {
+        "number": 4,
+        "route": "/create"
     }
 ]

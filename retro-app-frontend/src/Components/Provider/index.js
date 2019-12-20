@@ -9,7 +9,8 @@ class Provider extends Component {
             firstName: {
                 value: '',
                 isValid: false
-            }
+            },
+            onChange: this.onChange
         }
     }
 
@@ -22,9 +23,9 @@ class Provider extends Component {
         })
     }
 
-    render(){
+    render() {
         const { children } = this.props
-        return <Context.Provider value={ this.state }>{children}</Context.Provider>
+        return <Context.Provider value={this.state}>{children}</Context.Provider>
     }
 }
 
@@ -34,3 +35,5 @@ Provider.propTypes = {
     children: PropTypes.object,
     mockState: PropTypes.object
 }
+
+export default Provider

@@ -5,7 +5,7 @@ import { getPageRoute } from '../../../helpers/pagehelper'
 import Button from '@material-ui/core/Button';
 import { Input } from 'semantic-ui-react'
 
-export const Index = ({ context: { onChange, firstName }, history}) => {
+export const JoinARoom = ({ context: { onChange, firstName }, history}) => {
 
   const onSubmit = event => {
     event.preventDefault()
@@ -18,9 +18,7 @@ export const Index = ({ context: { onChange, firstName }, history}) => {
       <div className="App">
         <header className="App-header">
           <img alt='hi' src='https://s3-eu-west-1.amazonaws.com/live-iag-static-assets/logo-stockport-full%402x.png'></img>
-          <h1>
-            Retrospective Application
-          </h1>
+          <h1>Welcome {firstName.value}</h1>
 
           <Input
             label="Enter your name"
@@ -30,19 +28,15 @@ export const Index = ({ context: { onChange, firstName }, history}) => {
           />
 
           <Button variant="contained" type="submit">Submit</Button>
-          {/* <div className='home-button-container'>
-            <Button variant="contained">Create meeting</Button>
-            <Button variant="contained">Join meeting</Button>
-          </div> */}
         </header>
       </div>
     </form>
   );
 }
 
-Index.propTypes = {
+JoinARoom.propTypes = {
   context: PropTypes.object,
   history: PropTypes.object
 }
 
-export default withContext(Index)
+export default withContext(JoinARoom)
