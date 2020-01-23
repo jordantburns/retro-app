@@ -14,5 +14,9 @@
     {
         "number": 4,
         "route": "/create"
+    },
+    {
+        "number": 5,
+        "route": "/created"
     }
 ]

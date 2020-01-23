@@ -10,7 +10,10 @@ class Provider extends Component {
                 value: '',
                 isValid: false
             },
-            onChange: this.onChange
+            pin: '',
+            onChange: this.onChange,
+            submittedFormSuccessfully: false,
+            onFormSubmission: this.onFormSubmission
         }
     }
 
@@ -21,6 +24,14 @@ class Provider extends Component {
                 isValid
             }
         })
+    }
+
+    onFormSubmission = (pin) => {
+        const copyOfState = Object.assign({}, this.state)
+        copyOfState.submittedFormSuccessfully = true
+        copyOfState.pin = pin
+
+        this.setState(copyOfState)
     }
 
     render() {

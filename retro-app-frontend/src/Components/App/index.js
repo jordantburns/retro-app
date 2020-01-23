@@ -5,6 +5,7 @@ import Index from '../Pages/Index'
 import CreateOrJoinARoom from '../Pages/CreateOrJoinARoom'
 import JoinARoom from '../Pages/JoinARoom'
 import CreateARoom from '../Pages/CreateARoom'
+import RoomCreated from '../Pages/RoomCreated'
 
 class App extends Component {
     render() {
@@ -14,6 +15,7 @@ class App extends Component {
                 <Route exact path={getPageRoute(2)} component={ CreateOrJoinARoom }/>
                 <Route exact path={getPageRoute(3)} component={ JoinARoom }/>
                 <Route exact path={getPageRoute(4)} component={ CreateARoom }/>
+                <Route exact path={getPageRoute(5)} component={ RoomCreated }/>
             </Switch>
         )
     }
