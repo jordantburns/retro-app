@@ -50,3 +50,7 @@ code {
 div.home-button-container button {
 	margin-right: 10px;
 }
+
+div.react-trello-board {
+	background-color: #055c58;
+}
