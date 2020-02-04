@@ -26,7 +26,7 @@ export const Index = ({ context: { onChange, firstName }, history}) => {
             label="Enter your name"
             name="firstName"
             onChange={onChange}
-            firstName={firstName.value}
+            value={firstName.value}
           />
 
           <Button variant="contained" type="submit">Submit</Button>

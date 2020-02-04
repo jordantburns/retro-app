@@ -10,6 +10,9 @@ class Provider extends Component {
                 value: '',
                 isValid: false
             },
+            cardDescription: {
+                value: ''
+            },
             pin: '',
             onChange: this.onChange,
             submittedFormSuccessfully: false,
@@ -18,6 +21,8 @@ class Provider extends Component {
     }
 
     onChange = (event, isValid) => {
+        console.log(event)
+        console.log(isValid)
         this.setState({
             [event.target.name]: {
                 value: event.target.value,

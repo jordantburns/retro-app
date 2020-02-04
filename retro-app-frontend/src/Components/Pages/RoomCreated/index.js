@@ -12,35 +12,40 @@ const data = {
             id: 'lane1',
             title: 'What went well',
             cards: [
-            ]
+            ],
+            cardStyle: { backgroundColor: '#ffffa5' }
         },
         {
             id: 'lane2',
             title: 'What didn\'t go so well',
-            cards: []
+            cards: [],
+            cardStyle: { backgroundColor: '#ffffa5' }
         },
         {
             id: 'lane3',
             title: 'New things to try',
-            cards: []
+            cards: [],
+            cardStyle: { backgroundColor: '#ffffa5' }
         }
     ]
 }
 
 let eventBus = undefined
-
-let thistext = ''
+let cardNumbers = 1
 
 const setEventBus = (handle) => {
     eventBus = handle
 }
 
-const onSubmit = event => {
-    event.preventDefault()
-    eventBus.publish({type: 'ADD_CARD', laneId: 'lane1', card: {id: "M1", title: "Buy Milk", label: "15 mins", description: "Also set reminder"}})
-}
+export const RoomCreated = ({ context: { firstName, pin, onChange, cardDescription }, history}) => {
 
-export const RoomCreated = ({ context: { firstName, pin, onChange }, history}) => {
+    const onSubmit = event => {
+        event.preventDefault()
+        // eventBus.publish({type: 'ADD_CARD', laneId: 'lane1', card: {id: "card-" +cardNumbers, title: "hello", label: "15 mins", description: cardDescription.value}})
+        eventBus.publish({type: 'ADD_CARD', laneId: 'lane1', card: {id: "card-" +cardNumbers, title: cardDescription.value}})
+        cardNumbers++
+        onChange({target: {name: 'cardDescription', value: ''}}, {name: 'cardDescription', cardDescription: ''})
+    }
 
 return (
     <Fragment>
@@ -54,13 +59,13 @@ return (
             </header>
         </div> */}
         <Input
-            label="Enter some text for the card"
-            name="firstName"
-            onChange={onChange}
-            thistext={thistext.value}
+            label="Enter some text for the card hi"
+            name="cardDescription"
+            onChange={(event, data) => onChange(event, data)}
+            value={cardDescription.value}
         />
-        <Button variant="contained" type="submit" onClick={() => onSubmit}>Submit</Button>
-        <Board data={data} eventBusHandle={setEventBus} />
+        <Button variant="contained" type="submit" onClick={onSubmit}>Submit</Button>
+        <Board canAddLanes={true} editLaneTitle={true} data={data} eventBusHandle={setEventBus} />
     </Fragment>
 );
 }
