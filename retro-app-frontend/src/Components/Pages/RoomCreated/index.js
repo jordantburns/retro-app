@@ -42,7 +42,7 @@ export const RoomCreated = ({ context: { firstName, pin, onChange, cardDescripti
     const onSubmit = event => {
         event.preventDefault()
         // eventBus.publish({type: 'ADD_CARD', laneId: 'lane1', card: {id: "card-" +cardNumbers, title: "hello", label: "15 mins", description: cardDescription.value}})
-        eventBus.publish({type: 'ADD_CARD', laneId: 'lane1', card: {id: "card-" +cardNumbers, title: cardDescription.value}})
+        eventBus.publish({type: 'ADD_CARD', laneId: 'lane1', card: {id: "card-" +cardNumbers, title: '', description: cardDescription.value}})
         cardNumbers++
         onChange({target: {name: 'cardDescription', value: ''}}, {name: 'cardDescription', cardDescription: ''})
     }
