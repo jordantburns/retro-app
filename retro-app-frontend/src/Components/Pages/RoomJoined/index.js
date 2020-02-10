@@ -7,7 +7,7 @@ import { getPageRoute } from '../../../helpers/pagehelper'
 import { Input } from 'semantic-ui-react'
 import 'isomorphic-fetch'
 
-export class JoinARoom extends Component {
+export class RoomJoined extends Component {
     constructor(props) {
         super(props)
     }
@@ -16,11 +16,11 @@ export class JoinARoom extends Component {
         event.preventDefault()
         const { context, history } = this.props
         if(!context.submittedFormSuccessfully) {
-            let rawResponse = await SubmitUtil(context, "room/join")
+            let rawResponse = await SubmitUtil(context, "room/board/post")
 
             if(rawResponse.status === 200) {
                 context.onFormSubmission(rawResponse.pin)
-                history.push(getPageRoute(6))
+                history.push(getPageRoute(5))
             }
             else {
                 history.push(getPageRoute(2))
@@ -41,12 +41,12 @@ export class JoinARoom extends Component {
                         <img alt='hi' src='https://s3-eu-west-1.amazonaws.com/live-iag-static-assets/logo-stockport-full%402x.png'></img>
                         <h1>Welcome {context.firstName.value}</h1>
                         <Input
-                            label="Enter the pin"
-                            name="pinToJoin"
+                            label="Type a post-it note to stick on the board"
+                            name="message"
                             onChange={context.onChange}
-                            value={context.pinToJoin.value}
+                            value={context.message.value}
                         />
-                        <Button onClick={this.onSubmit} variant="contained">Join meeting</Button>
+                        <Button onClick={this.onSubmit} variant="contained">Post it!</Button>
                         </header>
                     </div>
                 </form>
@@ -55,9 +55,9 @@ export class JoinARoom extends Component {
     }
 }
 
-JoinARoom.propTypes = {
+RoomJoined.propTypes = {
     context: PropTypes.object,
     history: PropTypes.object
 }
 
-export default withContext(JoinARoom)
+export default withContext(RoomJoined)

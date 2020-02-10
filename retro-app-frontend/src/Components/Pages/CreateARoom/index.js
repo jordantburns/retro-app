@@ -15,7 +15,7 @@ export class CreateARoom extends Component {
         event.preventDefault()
         const { context, history } = this.props
         if(!context.submittedFormSuccessfully) {
-            let rawResponse = await SubmitUtil(context)
+            let rawResponse = await SubmitUtil(context, "room/create")
 
             if(rawResponse.status === 200) {
                 context.onFormSubmission(rawResponse.pin)

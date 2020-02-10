@@ -13,6 +13,14 @@ class Provider extends Component {
             cardDescription: {
                 value: ''
             },
+            pinToJoin: {
+                value: '',
+                isValid: false
+            },
+            message: {
+                value: '',
+                isValid: false
+            },
             pin: '',
             onChange: this.onChange,
             submittedFormSuccessfully: false,

@@ -59,7 +59,7 @@ return (
             </header>
         </div> */}
         <Input
-            label="Enter some text for the card hi"
+            label="Enter some text for the card"
             name="cardDescription"
             onChange={(event, data) => onChange(event, data)}
             value={cardDescription.value}

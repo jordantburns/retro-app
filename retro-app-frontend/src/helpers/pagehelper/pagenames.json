@@ -18,5 +18,13 @@
     {
         "number": 5,
         "route": "/created"
+    },
+    {
+        "number": 6,
+        "route": "/joined"
+    },
+    {
+        "number": 7,
+        "route": "/error"
     }
 ]

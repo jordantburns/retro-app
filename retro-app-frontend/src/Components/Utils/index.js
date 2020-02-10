@@ -1,6 +1,6 @@
 import 'isomorphic-fetch'
 
-async function submitForm(context) {
+async function submitForm(context, path) {
     const convertedContext = {}
 
     Object.keys(context).map(key => {
@@ -13,7 +13,7 @@ async function submitForm(context) {
 
     try {
         const result = await Promise.race([
-            await fetch('/submit', {
+            await fetch(path, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json; charset=utf-8',
