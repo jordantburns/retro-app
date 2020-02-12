@@ -1,10 +1,17 @@
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	background-color: #055c58;
+	font-family: 'Source Sans Pro', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 1.8vmin);
+	color: white;
 }
 
 code {
@@ -26,7 +33,6 @@ code {
 	justify-content: center;
 	font-size: calc(10px + 1.8vmin);
 	color: white;
-
 }
 
 .App-link {
@@ -62,4 +68,14 @@ header.fCeWxq {
 
 article.react-trello-card {
 	padding-top: 0px;
+}
+
+/* Post-it text */
+div.fAZUdY {
+	font-size: 30px;
+}
+
+/* Lane Headers */
+div.dVImGv {
+	font-size: 30px;
 }

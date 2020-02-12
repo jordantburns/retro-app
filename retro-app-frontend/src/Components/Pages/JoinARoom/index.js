@@ -19,11 +19,10 @@ export class JoinARoom extends Component {
             let rawResponse = await SubmitUtil(context, "room/join")
 
             if(rawResponse.status === 200) {
-                context.onFormSubmission(rawResponse.pin)
                 history.push(getPageRoute(6))
             }
             else {
-                history.push(getPageRoute(2))
+                history.push(getPageRoute(7))
             }
         }
         else {

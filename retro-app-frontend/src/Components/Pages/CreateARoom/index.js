@@ -22,7 +22,7 @@ export class CreateARoom extends Component {
                 history.push(getPageRoute(5))
             }
             else {
-                history.push(getPageRoute(2))
+                history.push(getPageRoute(7))
             }
         }
         else {

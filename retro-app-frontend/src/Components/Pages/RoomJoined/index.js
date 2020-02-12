@@ -16,18 +16,17 @@ export class RoomJoined extends Component {
         event.preventDefault()
         const { context, history } = this.props
         if(!context.submittedFormSuccessfully) {
-            let rawResponse = await SubmitUtil(context, "room/board/post")
+            let rawResponse = await SubmitUtil(context, "room/board")
 
             if(rawResponse.status === 200) {
-                context.onFormSubmission(rawResponse.pin)
-                history.push(getPageRoute(5))
+                history.push(getPageRoute(6))
             }
             else {
-                history.push(getPageRoute(2))
+                history.push(getPageRoute(7))
             }
         }
         else {
-            history.push(getPageRoute(3))
+            history.push(getPageRoute(7))
         }
     }
 
