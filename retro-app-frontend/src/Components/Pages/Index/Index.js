@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types'
 import withContext from '../../WithContext'
 import { getPageRoute } from '../../../helpers/pagehelper'
 import Button from '@material-ui/core/Button';
 import { Input } from 'semantic-ui-react'
+import * as SignalR from '@microsoft/signalr'
 
 export const Index = ({ context: { onChange, firstName }, history}) => {
+
+  useEffect(() => {
+    let connection = new SignalR.HubConnectionBuilder()
+    .withUrl("/signalr")
+    .build();
+
+    connection.on("ReceiveMessage", data => {
+        console.log(data);
+    });
+
+    connection.start()
+        .then(() => connection.invoke("SendMessage", "Hello"));
+  })
 
   const onSubmit = event => {
     event.preventDefault()
